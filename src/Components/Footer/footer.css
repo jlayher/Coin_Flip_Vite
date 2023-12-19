@@ -1,0 +1,30 @@
+.footer__container {
+    height: 8vh;
+    width: 100vw;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.footer__container-copyright{
+    font-size: 1.25em;
+    
+    margin-left: 20px;
+}
+
+.footer__container-social{
+    display: flex;
+}
+
+.footer__container-social_icon {
+    margin-right: 20px;
+
+}
+
+.footer__container-social_icon-icon {
+    height: 42px;
+    width: 42px;
+    object-fit: contain;
+}
