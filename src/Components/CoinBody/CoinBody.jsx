@@ -1,6 +1,7 @@
 import React from 'react'
 import "./coinbody.css"
 
+
 const CoinBody = () => {
   return (
     <div className='coinbody__container'>
@@ -20,8 +21,23 @@ const CoinBody = () => {
         </div>
       </div>
 
+      <div className='coinbody__container-body'>
+        {/* coin image/flip button */}
+        <div className='coinbody__container-body_coin'>
+          <img src='../../../public/assets/coin_generic.png' alt='coin' />
+        </div>
+
+        {/* Place Bet Banner Btn */}
+        <div className='coinbody__container-body_bet'>
+          <button type='button' className='coinbody__container-body_bet-btn'>
+            Place a Bet?
+          </button>
+        </div>
+
+      </div>
       
-      
+      {/* To Log Page Button (absolute positioning right side) */}
+
     </div>
   )
 }
