@@ -8,9 +8,11 @@ import { HiOutlineUserCircle } from "react-icons/hi";
 const Footer = () => {
   return (
     <div className='footer__container'>
+      
       <div className='footer__container-copyright'>
         ©2023 John Layher: All Rights Reserved
       </div>
+
       <div className='footer__container-social'>
         
         <div className='footer__container-social_icon'>

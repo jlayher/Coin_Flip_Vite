@@ -6,7 +6,6 @@ import Footer from './Components/Footer/Footer'
 import LogBody from './Components/LogBody/LogBody'
 
 function App() {
-  //state for swapping between CoinBody and LogBody, and passed to Header through Props to change title
   const [isGame, setIsGame] = useState(true);
 
   return (

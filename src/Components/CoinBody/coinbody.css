@@ -1,4 +1,17 @@
 .coinbody__container {
+
+
+}
+
+.coinbody__container-current {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+
+    margin-top: 20px;
+}
+
+.coinbody__container-current_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
