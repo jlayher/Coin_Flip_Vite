@@ -10,7 +10,7 @@ const Footer = () => {
     <div className='footer__container'>
       
       <div className='footer__container-copyright'>
-        ©2023 John Layher: All Rights Reserved
+        ©2023 John Layher
       </div>
 
       <div className='footer__container-social'>

@@ -2,7 +2,7 @@ import React from 'react'
 import "./coinbody.css"
 
 
-const CoinBody = () => {
+const CoinBody = ({isGame, setIsGame}) => {
   return (
     <div className='coinbody__container'>
       
@@ -24,7 +24,10 @@ const CoinBody = () => {
       <div className='coinbody__container-body'>
         {/* coin image/flip button */}
         <div className='coinbody__container-body_coin'>
-          <img src='../../../public/assets/coin_generic.png' alt='coin' />
+          <button type='button' className='coinbody__container-body_coin-button'>
+            <img src='../../../public/assets/coin_generic.png' alt='coin' />
+          </button>
+          <div>Click to Flip!</div>
         </div>
 
         {/* Place Bet Banner Btn */}
@@ -38,6 +41,10 @@ const CoinBody = () => {
       
       {/* To Log Page Button (absolute positioning right side) */}
 
+      <button type='button' className='coinbody__container-history' onClick={() => setIsGame(!isGame)}>
+        <div className='coinbody__container-history_text'>History</div>
+        <div>&#8594;</div>
+      </button>
     </div>
   )
 }

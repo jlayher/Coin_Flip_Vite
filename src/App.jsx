@@ -11,7 +11,8 @@ function App() {
   return (
     <div className='wrapper'>
       <Header isGame={isGame} />
-      {isGame ? <CoinBody /> : <LogBody />}
+      {isGame ? <CoinBody isGame={isGame} setIsGame={setIsGame} />
+        : <LogBody isGame={isGame} setIsGame={setIsGame} />}
       <Footer />
     </div>
   )

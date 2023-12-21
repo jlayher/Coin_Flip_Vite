@@ -28,3 +28,24 @@
     width: 42px;
     object-fit: contain;
 }
+
+
+
+/* START: Small screen*/
+@media screen and (max-width: 550px) {
+    .footer__container-copyright {
+        font-size: 1em;
+        margin-left: 10px;
+    }
+
+    .footer__container-social_icon {
+        margin-right: 10px;
+    }
+
+    .footer__container-social_icon-icon {
+        height: 32px;
+        width: 32px;
+    }
+}
+
+/* END: Small screen */
