@@ -1,9 +1,12 @@
 import React from 'react'
 import "./betmodal.css"
 
-const BetModal = () => {
+const BetModal = ({currentPlayer, setCurrentBet}) => {
   return (
-    <div>BetModal</div>
+  
+    <div className='betmodal__container'>
+      <div>Place Your Bet {currentPlayer}</div>
+    </div>
   )
 }
 
