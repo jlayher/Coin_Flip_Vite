@@ -1,0 +1,42 @@
+.betmodal__container{
+    position: absolute;
+    top: 40%;
+    left: 38%;
+    
+    width: 25%;
+ 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2rem;
+
+    border: 2px solid red;
+    background-color: burlywood;
+
+}
+
+
+.betmodal__container-title {
+
+}
+
+.betmodal__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.betmodal__container-bet {
+    max-width: 25%;
+}
+
+.betmodal__container-icons button{
+    font-size: 1.5rem;
+}
+
+.betmodal__container-btn {
+    font-size: 1.5rem;
+}

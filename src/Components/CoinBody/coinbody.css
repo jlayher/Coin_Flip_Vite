@@ -51,7 +51,19 @@
     font-size: 1.5em;
 }
 
+.coinbody__container-current_item-outcome {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+}
+
+.coinbody__container-current_item-outcome h3 {
+    font-size: 1.5em;
+}
+
 .coinbody__container-body{
+    position: relative;
     display: flex;
     flex: 1;
     flex-direction: column;

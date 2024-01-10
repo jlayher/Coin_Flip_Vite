@@ -24,8 +24,8 @@
 }
 
 .footer__container-social_icon-icon {
-    height: 42px;
-    width: 42px;
+    height: 36px;
+    width: 36px;
     object-fit: contain;
 }
 
@@ -43,8 +43,8 @@
     }
 
     .footer__container-social_icon-icon {
-        height: 32px;
-        width: 32px;
+        height: 28px;
+        width: 28px;
     }
 }
 

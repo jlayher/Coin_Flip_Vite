@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './Components/Header/Header'
 import './App.css'
 import CoinBody from './Components/CoinBody/CoinBody'
@@ -10,8 +10,8 @@ function App() {
   const [currentPlayer, setCurrentPlayer] = useState("P1");
   const [currentWinner, setCurrentWinner] = useState("P2");
   const [currentBet, setCurrentBet] = useState(0);
-
-  const [flipOutcome, setFlipOutcome] = useState("Heads");
+  const [currentGuess, setCurrentGuess] = useState('');
+  const [flipOutcome, setFlipOutcome] = useState("");
   const [history, setHistory] = useState([]);
 
   //handleFlip
@@ -27,14 +27,47 @@ function App() {
   // reset currentBet
   // switch currentPlayer
   
+  // calcFlip()
+  // generate a random number between 0 and 1, and round to nearest integer.
+    // if 0, setFlipOutcome to Heads
+  // else setFlipOutcome to Tails
+  
+  // this may need to be called in useEffect. Same issue as previous version.
+  const calcFlip = () => {
+    const random = Math.floor(Math.random() * 2);
+    const flip = random ? "Heads" : "Tails";
+    setFlipOutcome(flip);
+  }
 
-  //calculate current player and set state (gets called by handleFlip)
+
+  //handleFlip Function
+  const handleFlip = () => {
+    //set heads or tails in flipOutcome
+    calcFlip();
+
+
+
+    //Reset Game
+    //Change current Player after turn ends
+    changePlayer();
+    setCurrentBet(0);
+
+  }
+
+  const changePlayer = () => {
+    if (currentPlayer === "P1") {
+      setCurrentPlayer("P2");
+    } else {
+      setCurrentPlayer("P1");
+    }
+  }
 
   return (
     <div className='wrapper'>
       <Header isGame={isGame} />
       {isGame ?
         <CoinBody
+          calcFlip={calcFlip}
           isGame={isGame}
           setIsGame={setIsGame}
           currentPlayer={currentPlayer}
@@ -42,7 +75,12 @@ function App() {
           currentWinner={currentWinner}
           // setCurrentWinner={setCurrentWinner}
           currentBet={currentBet}
-          setCurrentBet={setCurrentBet}/>
+          setCurrentBet={setCurrentBet} 
+          handleFlip={handleFlip} 
+          flipOutcome={flipOutcome}
+          currentGuess={currentGuess}
+          setCurrentGuess={setCurrentGuess}
+          />
         :
         <LogBody
           isGame={isGame}
