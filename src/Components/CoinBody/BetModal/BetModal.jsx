@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./betmodal.css"
 
 const BetModal = ({ currentPlayer, setCurrentBet, setCurrentGuess, setShowBetModal }) => {
   
   const betRef = React.useRef();
+
+
+  const [guess, setGuess] = useState('');
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,7 +16,7 @@ const BetModal = ({ currentPlayer, setCurrentBet, setCurrentGuess, setShowBetMod
     setCurrentBet(bet);
 
 
-
+    setCurrentGuess(guess);
     setShowBetModal(false);
 
   }
@@ -32,23 +35,23 @@ const BetModal = ({ currentPlayer, setCurrentBet, setCurrentGuess, setShowBetMod
         <div className='betmodal__container-icons'>
           {/* toggle selected class around Images */}
 
-          <label htmlFor="heads"></label>
+          <label htmlFor="heads">Heads</label>
             <input
-              type="button"
+              type="radio"
               id="heads"
               name="flipvalue"
               value="Heads"
               onChange={(e) => {
-                setCurrentGuess(e.target.value)      
+                setGuess(e.target.value);
               }}></input>
-          <label htmlFor="tails"></label>
+          <label htmlFor="tails">Tails</label>
             <input
-              type="button"
+              type="radio"
               id="tails"
               name="flipvalue"
               value="Tails"
               onChange={(e) => {
-                console.log(e.target.value)
+                setGuess(e.target.value);
               }}></input>
         </div>
 

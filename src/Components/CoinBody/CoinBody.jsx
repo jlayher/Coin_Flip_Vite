@@ -4,7 +4,7 @@ import { useState } from 'react';
 import BetModal from './BetModal/BetModal';
 
 
-const CoinBody = ({ isGame, setIsGame, currentPlayer, currentWinner, currentBet, setCurrentBet, handleFlip, flipOutcome, currentGuess, setCurrentGuess }) => {
+const CoinBody = ({ isGame, setIsGame, currentPlayer, currentWinner, currentBet, setCurrentBet, handleFlip, flipOutcome, currentGuess, setCurrentGuess, P1Score }) => {
   
   const [showBetModal, setShowBetModal] = useState(false);
 
@@ -33,8 +33,13 @@ const CoinBody = ({ isGame, setIsGame, currentPlayer, currentWinner, currentBet,
       </div>
         
       <div className='coinbody__container-current_item-outcome'>
-          <h3>Current Guess: {currentGuess}</h3>
+        <h3>Current Guess: {currentGuess}</h3>
       </div>
+
+      <div className='coinbody__container-current_item-outcome'>
+        <h3>P1 Score: {P1Score}</h3>
+      </div>
+        
 
 
 
@@ -50,7 +55,9 @@ const CoinBody = ({ isGame, setIsGame, currentPlayer, currentWinner, currentBet,
         {/* Place Bet Banner Btn */}
         <div className='coinbody__container-body_bet'>
           <button type='button' className='coinbody__container-body_bet-btn' onClick={() => setShowBetModal(!showBetModal)}>
-            Place a Bet?
+              {currentBet === 0
+                ? <>Place a Bet?</>
+                : <>Bet Submitted!</>}
           </button>
         </div>
 

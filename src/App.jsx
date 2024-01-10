@@ -8,11 +8,12 @@ import LogBody from './Components/LogBody/LogBody'
 function App() {
   const [isGame, setIsGame] = useState(true);
   const [currentPlayer, setCurrentPlayer] = useState("P1");
-  const [currentWinner, setCurrentWinner] = useState("P2");
+  const [currentWinner, setCurrentWinner] = useState("");
   const [currentBet, setCurrentBet] = useState(0);
   const [currentGuess, setCurrentGuess] = useState('');
   const [flipOutcome, setFlipOutcome] = useState("");
   const [history, setHistory] = useState([]);
+  const [P1Score, setP1Score] = useState(0);
 
   //handleFlip
   // calculate heads/tails and setFlipOutcome
@@ -40,10 +41,30 @@ function App() {
   }
 
 
+  //calculate P1 Score using history
+
+
+
+  const calcCurrentWinner = () => {
+    if (P1Score > 0) {
+      console.log("P1 is Winning")
+      setCurrentWinner("P1") 
+    } else if (P1Score < 0) {
+      console.log("P1 is Losing")
+      setCurrentWinner("P2")
+    } else {
+      console.log("Tied Game!")
+      setCurrentWinner("Tied")
+    }
+  }
+
   //handleFlip Function
   const handleFlip = () => {
     //set heads or tails in flipOutcome
     calcFlip();
+
+    calcCurrentWinner()
+
 
 
 
@@ -51,6 +72,7 @@ function App() {
     //Change current Player after turn ends
     changePlayer();
     setCurrentBet(0);
+    setCurrentGuess('');
 
   }
 
@@ -80,6 +102,7 @@ function App() {
           flipOutcome={flipOutcome}
           currentGuess={currentGuess}
           setCurrentGuess={setCurrentGuess}
+          P1Score={P1Score}
           />
         :
         <LogBody
