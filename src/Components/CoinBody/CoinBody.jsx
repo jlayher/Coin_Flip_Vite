@@ -4,7 +4,7 @@ import { useState } from 'react';
 import BetModal from './BetModal/BetModal';
 
 
-const CoinBody = ({ isGame, setIsGame, currentPlayer, currentWinner, currentBet, setCurrentBet, handleFlip, flipOutcome, currentGuess, setCurrentGuess, P1Score }) => {
+const CoinBody = ({ changePlayer, isGame, setIsGame, currentPlayer, currentWinner, currentBet, setCurrentBet, handleFlip, flipOutcome, coinFlip, currentGuess, setCurrentGuess, P1Score, flipWinner, calcFlip, resetGame }) => {
   
   const [showBetModal, setShowBetModal] = useState(false);
 
@@ -37,8 +37,13 @@ const CoinBody = ({ isGame, setIsGame, currentPlayer, currentWinner, currentBet,
       </div>
 
       <div className='coinbody__container-current_item-outcome'>
-        <h3>P1 Score: {P1Score}</h3>
-      </div>
+        <h3>P1 Score:{P1Score}</h3>
+        </div>
+        
+      <div className='coinbody__container-current_item-outcome'>
+        <h3>Flip (Round) Winner: {flipWinner}</h3>
+        </div>
+        
         
 
 
@@ -46,7 +51,7 @@ const CoinBody = ({ isGame, setIsGame, currentPlayer, currentWinner, currentBet,
       <div className='coinbody__container-body'>
         {/* coin image/flip button */}
         <div className='coinbody__container-body_coin'>
-          <button type='button' className='coinbody__container-body_coin-button' onClick={() => handleFlip()}>
+          <button type='button' className='coinbody__container-body_coin-button' onClick={() => coinFlip()}>
             <img src='../../../public/assets/coin_generic.png' alt='coin' />
           </button>
           <div>Click to Flip!</div>
@@ -59,15 +64,23 @@ const CoinBody = ({ isGame, setIsGame, currentPlayer, currentWinner, currentBet,
                 ? <>Place a Bet?</>
                 : <>Bet Submitted!</>}
           </button>
-        </div>
+          </div>
+          
+          <div>
+            <button onClick={() => resetGame()}>Reset</button>
+          </div>
 
       </div>
       
       {/* To Log Page Button (absolute positioning right side) */}
-
       <button type='button' className='coinbody__container-history' onClick={() => setIsGame(!isGame)}>
         <div className='coinbody__container-history_text'>History</div>
         <div>&#8594;</div>
+      </button>
+        
+      <button type='button' className='coinbody__container-reset' onClick={() => changePlayer()}>
+        <div className='coinbody__container-history_text'>Change Player</div>
+        {/* <div>&#8592;</div> */}
       </button>
 
       

@@ -12,10 +12,7 @@ const BetModal = ({ currentPlayer, setCurrentBet, setCurrentGuess, setShowBetMod
     e.preventDefault();
 
     const bet = betRef.current.value;
-    console.log(bet)
     setCurrentBet(bet);
-
-
     setCurrentGuess(guess);
     setShowBetModal(false);
 

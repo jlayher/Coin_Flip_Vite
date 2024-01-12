@@ -12,39 +12,51 @@ function App() {
   const [currentBet, setCurrentBet] = useState(0);
   const [currentGuess, setCurrentGuess] = useState('');
   const [flipOutcome, setFlipOutcome] = useState("");
+  const [flipWinner, setFlipWinner] = useState("")
   const [history, setHistory] = useState([]);
   const [P1Score, setP1Score] = useState(0);
 
-  //handleFlip
-  // calculate heads/tails and setFlipOutcome
-  // take currentBet value and add/subtract from P1Score
-    // if P1 is currentPlayer and wins, add currentBet to P1Score,
-    // else if loss, subtract the currentBet from P1Score.
-    // Repeat for P2 win / loss conditions
-  // if P1Score is positive, setCurrentWinner to P1, else setCurrentWinner to P2
 
-  // generate Win/Loss Modal
-  // update history array
-  // reset currentBet
-  // switch currentPlayer
+  //runs when Coin is Clicked
+  const coinFlip = () => {
+    calcFlip();
+    updateScore();
+  }
   
-  // calcFlip()
-  // generate a random number between 0 and 1, and round to nearest integer.
-    // if 0, setFlipOutcome to Heads
-  // else setFlipOutcome to Tails
-  
-  // this may need to be called in useEffect. Same issue as previous version.
+
+  //calculate heads or tails
   const calcFlip = () => {
     const random = Math.floor(Math.random() * 2);
     const flip = random ? "Heads" : "Tails";
     setFlipOutcome(flip);
   }
 
+  //call roundWinner to set the flipWinner when the flipOutcome is determined by calcFlip being called and updating flipOutcome
+  useEffect(() => {
+    roundWinner();
 
-  //calculate P1 Score using history
+  }, [flipOutcome])
 
 
-
+  //Calculate flipWinner (current player's guess should match the flip outcome)
+  const roundWinner = () => {
+    if (!currentGuess) {
+        setFlipWinner("")
+    } else {
+      if (currentPlayer === "P1" && currentGuess === flipOutcome) {
+          setFlipWinner("P1")
+        } else if (currentPlayer === "P1" && currentGuess !== flipOutcome) {
+          setFlipWinner("P2")
+        } else if (currentPlayer === "P2" && currentGuess === flipOutcome) {
+          setFlipWinner("P2")
+        } else if (currentPlayer === "P2" && currentGuess !== flipOutcome) {
+          setFlipWinner("P1")
+        }
+      else 
+          setFlipWinner("")
+    }
+  }
+        
   const calcCurrentWinner = () => {
     if (P1Score > 0) {
       console.log("P1 is Winning")
@@ -58,22 +70,13 @@ function App() {
     }
   }
 
-  //handleFlip Function
-  const handleFlip = () => {
-    //set heads or tails in flipOutcome
-    calcFlip();
-
-    calcCurrentWinner()
 
 
-
-
-    //Reset Game
-    //Change current Player after turn ends
-    changePlayer();
+  const resetGame = () => {
     setCurrentBet(0);
     setCurrentGuess('');
-
+    setFlipWinner('');
+    setFlipOutcome('');
   }
 
   const changePlayer = () => {
@@ -83,6 +86,15 @@ function App() {
       setCurrentPlayer("P1");
     }
   }
+
+  // const updateScore = () => {
+  //   let bet = parseInt(currentBet);
+  //   if (flipWinner === "P1") {
+  //     setP1Score(P1Score + bet)
+  //   } else {
+  //     setP1Score(P1Score - bet)
+  //   }
+  // }
 
   return (
     <div className='wrapper'>
@@ -98,11 +110,15 @@ function App() {
           // setCurrentWinner={setCurrentWinner}
           currentBet={currentBet}
           setCurrentBet={setCurrentBet} 
-          handleFlip={handleFlip} 
+          // handleFlip={handleFlip} 
           flipOutcome={flipOutcome}
           currentGuess={currentGuess}
           setCurrentGuess={setCurrentGuess}
           P1Score={P1Score}
+          flipWinner={flipWinner}
+          coinFlip={coinFlip}
+          resetGame={resetGame}
+          changePlayer={changePlayer}
           />
         :
         <LogBody
