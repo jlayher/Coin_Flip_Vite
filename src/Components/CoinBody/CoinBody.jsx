@@ -4,9 +4,9 @@ import { useState } from 'react';
 import BetModal from './BetModal/BetModal';
 
 
-const CoinBody = ({ changePlayer, isGame, setIsGame, currentPlayer, currentWinner, currentBet, setCurrentBet, handleFlip, flipOutcome, coinFlip, currentGuess, setCurrentGuess, P1Score, flipWinner, calcFlip, resetGame }) => {
+const CoinBody = ({ showBetModal, setShowBetModal, changePlayer, isGame, setIsGame, currentPlayer, currentWinner, currentBet, setCurrentBet, handleFlip, flipOutcome, coinFlip, currentGuess, setCurrentGuess, P1Score, flipWinner, calcFlip, resetGame }) => {
   
-  const [showBetModal, setShowBetModal] = useState(false);
+
 
   return (
     <>
@@ -28,16 +28,16 @@ const CoinBody = ({ changePlayer, isGame, setIsGame, currentPlayer, currentWinne
       </div>
 
       <div className='coinbody__container-current_item-outcome'>
-        <h3>Last Outcome: </h3>
+        <h3>Flip Outcome: </h3>
         <h3>&nbsp;{flipOutcome}</h3>
       </div>
         
       <div className='coinbody__container-current_item-outcome'>
-        <h3>Current Guess: {currentGuess}</h3>
+        <h3>{currentPlayer} Current Guess: {currentGuess}</h3>
       </div>
 
       <div className='coinbody__container-current_item-outcome'>
-        <h3>P1 Score:{P1Score}</h3>
+        <h3>P1 Total Score: {P1Score}</h3>
         </div>
         
       <div className='coinbody__container-current_item-outcome'>

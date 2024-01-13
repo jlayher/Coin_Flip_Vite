@@ -20,7 +20,9 @@ const BetModal = ({ currentPlayer, setCurrentBet, setCurrentGuess, setShowBetMod
 
   return (
   
-    <div className='betmodal__container'>
+    <div className='betmodal__container' onClick={(e) => {
+      e.stopPropagation();
+    }}>
       
       <div className='betmodal__container-title'>{currentPlayer} Bet</div>
 

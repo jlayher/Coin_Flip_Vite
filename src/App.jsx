@@ -15,12 +15,13 @@ function App() {
   const [flipWinner, setFlipWinner] = useState("")
   const [history, setHistory] = useState([]);
   const [P1Score, setP1Score] = useState(0);
-
+  const [flipped, setFlipped] = useState(false);
+  const [showBetModal, setShowBetModal] = useState(false);
 
   //runs when Coin is Clicked
   const coinFlip = () => {
     calcFlip();
-    updateScore();
+    setFlipped(true);
   }
   
 
@@ -29,6 +30,7 @@ function App() {
     const random = Math.floor(Math.random() * 2);
     const flip = random ? "Heads" : "Tails";
     setFlipOutcome(flip);
+    updateScore();
   }
 
   //call roundWinner to set the flipWinner when the flipOutcome is determined by calcFlip being called and updating flipOutcome
@@ -59,13 +61,10 @@ function App() {
         
   const calcCurrentWinner = () => {
     if (P1Score > 0) {
-      console.log("P1 is Winning")
       setCurrentWinner("P1") 
     } else if (P1Score < 0) {
-      console.log("P1 is Losing")
       setCurrentWinner("P2")
     } else {
-      console.log("Tied Game!")
       setCurrentWinner("Tied")
     }
   }
@@ -77,6 +76,7 @@ function App() {
     setCurrentGuess('');
     setFlipWinner('');
     setFlipOutcome('');
+    setP1Score(0);
   }
 
   const changePlayer = () => {
@@ -87,17 +87,26 @@ function App() {
     }
   }
 
-  // const updateScore = () => {
-  //   let bet = parseInt(currentBet);
-  //   if (flipWinner === "P1") {
-  //     setP1Score(P1Score + bet)
-  //   } else {
-  //     setP1Score(P1Score - bet)
-  //   }
-  // }
+
+  useEffect(()=> {
+    const updateScore = () => {
+      let bet = parseInt(currentBet);
+      if (flipWinner === "P1") {
+        setP1Score(P1Score + bet)
+      } else {
+        setP1Score(P1Score - bet)
+      }
+    }
+    updateScore();
+  },[flipped])
+
 
   return (
-    <div className='wrapper'>
+    <div className='wrapper' onClick={() => {
+      if (showBetModal === true) {
+        setShowBetModal(!showBetModal)
+      }
+    }}>
       <Header isGame={isGame} />
       {isGame ?
         <CoinBody
@@ -119,6 +128,8 @@ function App() {
           coinFlip={coinFlip}
           resetGame={resetGame}
           changePlayer={changePlayer}
+          showBetModal={showBetModal}
+          setShowBetModal={setShowBetModal}
           />
         :
         <LogBody
