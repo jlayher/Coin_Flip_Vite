@@ -17,67 +17,55 @@ function App() {
   const [P1Score, setP1Score] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [showBetModal, setShowBetModal] = useState(false);
+  const [showOutcomeText, setShowOutcomeText] = useState(false);
 
   //runs when Coin is Clicked
   const coinFlip = () => {
+    //calc the flip value and set the flipOutcome to Heads or Tails
     calcFlip();
-    setFlipped(true);
+    setShowOutcomeText(true);
   }
-  
 
   //calculate heads or tails
   const calcFlip = () => {
+    //set the flipOutcome
     const random = Math.floor(Math.random() * 2);
     const flip = random ? "Heads" : "Tails";
+    const bet = parseInt(currentBet);
+    const score = P1Score;
     setFlipOutcome(flip);
-    updateScore();
+    //set flipWinner and P1Score
+    //if there is no guess, set flipWinner to "", reset currentBet to 0, and do not update P1Score
+    if (currentGuess === "") {
+      setFlipWinner("");
+      setCurrentBet(0);
+      //update P1Score Based on Current Bet and Guess to determine the Round Winner
+    } else if (currentPlayer === "P1" && currentGuess === flip) {
+      setFlipWinner("P1")
+      setP1Score(() => score + bet)
+    } else if (currentPlayer === "P1" && currentGuess !== flip) {
+      setFlipWinner("P2")
+      setP1Score(() => score - bet)
+    } else if (currentPlayer === "P2" && currentGuess === flip) {
+      setFlipWinner("P2")
+      setP1Score(() => score - bet)
+    } else if (currentPlayer === "P2" && currentGuess !== flip) {
+      setFlipWinner("P1")
+      setP1Score(() => score + bet)
+    }
   }
 
-  //call roundWinner to set the flipWinner when the flipOutcome is determined by calcFlip being called and updating flipOutcome
   useEffect(() => {
-    roundWinner();
-
-  }, [flipOutcome])
-
-
-  //Calculate flipWinner (current player's guess should match the flip outcome)
-  const roundWinner = () => {
-    if (!currentGuess) {
-        setFlipWinner("")
+    //calculate Overall Winner
+    const score = P1Score;
+    if (score > 0) {
+      setCurrentWinner(() => "P1")
+    } else if (score < 0) {
+      setCurrentWinner(() => "P2")
     } else {
-      if (currentPlayer === "P1" && currentGuess === flipOutcome) {
-          setFlipWinner("P1")
-        } else if (currentPlayer === "P1" && currentGuess !== flipOutcome) {
-          setFlipWinner("P2")
-        } else if (currentPlayer === "P2" && currentGuess === flipOutcome) {
-          setFlipWinner("P2")
-        } else if (currentPlayer === "P2" && currentGuess !== flipOutcome) {
-          setFlipWinner("P1")
-        }
-      else 
-          setFlipWinner("")
+      setCurrentWinner(() => "No One")
     }
-  }
-        
-  const calcCurrentWinner = () => {
-    if (P1Score > 0) {
-      setCurrentWinner("P1") 
-    } else if (P1Score < 0) {
-      setCurrentWinner("P2")
-    } else {
-      setCurrentWinner("Tied")
-    }
-  }
-
-
-
-  const resetGame = () => {
-    setCurrentBet(0);
-    setCurrentGuess('');
-    setFlipWinner('');
-    setFlipOutcome('');
-    setP1Score(0);
-  }
+  })
 
   const changePlayer = () => {
     if (currentPlayer === "P1") {
@@ -85,26 +73,27 @@ function App() {
     } else {
       setCurrentPlayer("P1");
     }
+    setCurrentBet(0);
+    setCurrentGuess("");
   }
 
 
-  useEffect(()=> {
-    const updateScore = () => {
-      let bet = parseInt(currentBet);
-      if (flipWinner === "P1") {
-        setP1Score(P1Score + bet)
-      } else {
-        setP1Score(P1Score - bet)
-      }
-    }
-    updateScore();
-  },[flipped])
+  const resetGame = () => {
+    // setCurrentBet(0);
+    // setCurrentGuess('');
+    // setFlipWinner('');
+    // setFlipOutcome('');
+    // setP1Score(0);
+  }
 
 
   return (
     <div className='wrapper' onClick={() => {
       if (showBetModal === true) {
         setShowBetModal(!showBetModal)
+        // remove this code!!!!  change this in CoinBody.css so it transitions out.  currently bugs when clicking to flip while the Outcome Text is already visible
+      } else if (showOutcomeText === true) {
+        setShowOutcomeText(false)
       }
     }}>
       <Header isGame={isGame} />
@@ -114,12 +103,9 @@ function App() {
           isGame={isGame}
           setIsGame={setIsGame}
           currentPlayer={currentPlayer}
-          // setCurrentPlayer={setCurrentPlayer}
           currentWinner={currentWinner}
-          // setCurrentWinner={setCurrentWinner}
           currentBet={currentBet}
           setCurrentBet={setCurrentBet} 
-          // handleFlip={handleFlip} 
           flipOutcome={flipOutcome}
           currentGuess={currentGuess}
           setCurrentGuess={setCurrentGuess}
@@ -130,6 +116,7 @@ function App() {
           changePlayer={changePlayer}
           showBetModal={showBetModal}
           setShowBetModal={setShowBetModal}
+          showOutcomeText={showOutcomeText}
           />
         :
         <LogBody

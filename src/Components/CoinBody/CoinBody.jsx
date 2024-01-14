@@ -1,13 +1,29 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import "./coinbody.css"
 import { useState } from 'react';
 import BetModal from './BetModal/BetModal';
 
 
-const CoinBody = ({ showBetModal, setShowBetModal, changePlayer, isGame, setIsGame, currentPlayer, currentWinner, currentBet, setCurrentBet, handleFlip, flipOutcome, coinFlip, currentGuess, setCurrentGuess, P1Score, flipWinner, calcFlip, resetGame }) => {
+const CoinBody = ({
+  showOutcomeText,
+  showBetModal,
+  setShowBetModal,
+  changePlayer,
+  isGame,
+  setIsGame,
+  currentPlayer,
+  currentWinner,
+  currentBet,
+  setCurrentBet,
+  flipOutcome,
+  coinFlip,
+  currentGuess,
+  setCurrentGuess,
+  P1Score,
+  flipWinner,
+  resetGame }) => {
   
-
-
   return (
     <>
     <div className='coinbody__container'>
@@ -25,8 +41,8 @@ const CoinBody = ({ showBetModal, setShowBetModal, changePlayer, isGame, setIsGa
           <h3>Current Winner</h3>
           <h3>{currentWinner}</h3>
         </div>
-      </div>
-
+      </div>     
+      
       <div className='coinbody__container-current_item-outcome'>
         <h3>Flip Outcome: </h3>
         <h3>&nbsp;{flipOutcome}</h3>
@@ -43,10 +59,6 @@ const CoinBody = ({ showBetModal, setShowBetModal, changePlayer, isGame, setIsGa
       <div className='coinbody__container-current_item-outcome'>
         <h3>Flip (Round) Winner: {flipWinner}</h3>
         </div>
-        
-        
-
-
 
       <div className='coinbody__container-body'>
         {/* coin image/flip button */}
@@ -83,11 +95,28 @@ const CoinBody = ({ showBetModal, setShowBetModal, changePlayer, isGame, setIsGa
         {/* <div>&#8592;</div> */}
       </button>
 
-      
     </div>
     
     {/* Display BetModal onClick (remove when currentBet is submitted, or clicking outside of Modal window) */}
       {showBetModal && <BetModal currentPlayer={currentPlayer} setCurrentBet={setCurrentBet} setCurrentGuess={setCurrentGuess} setShowBetModal={setShowBetModal} />}
+
+    {/* Display Flip Outcome Banner and Fade Out to display: none after 2 seconds */}
+      {showOutcomeText &&
+        <div className='coinbody__outcome'>
+          <div>
+            Player {currentPlayer} Guessed: {currentGuess}
+          </div>
+          <div>
+            Flip Outcome: {flipOutcome}
+          </div>
+          <div>
+            {flipWinner} Won the Round!
+          </div>
+          <div>
+            {currentWinner} is in the Lead!
+          </div>
+        
+        </div>}
     </>
   )
 }
