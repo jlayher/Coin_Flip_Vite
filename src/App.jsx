@@ -15,15 +15,16 @@ function App() {
   const [flipWinner, setFlipWinner] = useState("")
   const [history, setHistory] = useState([]);
   const [P1Score, setP1Score] = useState(0);
-  const [flipped, setFlipped] = useState(false);
   const [showBetModal, setShowBetModal] = useState(false);
   const [showOutcomeText, setShowOutcomeText] = useState(false);
+  const [timeOfFlip, setTimeOfFlip] = useState("");
+  const [gameNumber, setGameNumber] = useState(0);
 
   //runs when Coin is Clicked
   const coinFlip = () => {
     //calc the flip value and set the flipOutcome to Heads or Tails
     calcFlip();
-    setShowOutcomeText(true);
+    showOutcome();
   }
 
   //calculate heads or tails
@@ -33,9 +34,11 @@ function App() {
     const flip = random ? "Heads" : "Tails";
     const bet = parseInt(currentBet);
     const score = P1Score;
-    setFlipOutcome(flip);
-    //set flipWinner and P1Score
-    //if there is no guess, set flipWinner to "", reset currentBet to 0, and do not update P1Score
+    setFlipOutcome(() => flip);
+    calcTimeOfFlip();
+
+    // //set flipWinner and P1Score
+    // //if there is no guess, set flipWinner to "", reset currentBet to 0, and do not update P1Score
     if (currentGuess === "") {
       setFlipWinner("");
       setCurrentBet(0);
@@ -53,19 +56,28 @@ function App() {
       setFlipWinner("P1")
       setP1Score(() => score + bet)
     }
+
   }
 
   useEffect(() => {
-    //calculate Overall Winner
-    const score = P1Score;
-    if (score > 0) {
-      setCurrentWinner(() => "P1")
-    } else if (score < 0) {
-      setCurrentWinner(() => "P2")
-    } else {
-      setCurrentWinner(() => "No One")
+
+    const updateWinner = () => {
+      const score = parseInt(P1Score);
+      if (score > 0) {
+        setCurrentWinner(() => "Player 1")
+      } else if (score < 0) {
+        setCurrentWinner(() => "Player 2")
+      } else if (score === 0) {
+        setCurrentWinner(() => "No One")
+      }
     }
-  })
+    updateWinner();
+    setGameNumber((prevNum) => prevNum + 1);
+  }, [timeOfFlip, P1Score])
+
+  const showOutcome = () => {
+    setShowOutcomeText(true);
+  }
 
   const changePlayer = () => {
     if (currentPlayer === "P1") {
@@ -76,6 +88,46 @@ function App() {
     setCurrentBet(0);
     setCurrentGuess("");
   }
+
+  //create new date object
+  const calcTimeOfFlip = () => {
+    const today = new Date();
+    const month = today.getMonth() + 1;
+    const day = today.getDate();
+    const year = today.getFullYear();
+    const hour = today.getHours();
+    const mins = today.getMinutes();
+    const secs = today.getSeconds();
+    const amPm = (hour <= 12) ? "AM" : "PM"
+    const time = `${hour}:${mins}:${secs} ${amPm} ${month}-${day}-${year}`
+
+    setTimeOfFlip(time)
+  }
+
+  //create new hisotry object for the History Log
+  useEffect(() => {
+    if (timeOfFlip === "") {
+      return console.log('No History Yet!')
+    } else {
+      const createNewHistory = () => {  
+        let newHistory = {
+          time: `${timeOfFlip}`,
+          player: `${currentPlayer}`,
+          bet: `${currentBet}`,
+          guess: `${currentGuess}`,
+          outcome: `${flipOutcome}`,
+          roundWinner: `${ flipWinner }`,
+          overallWinner: `${currentWinner}`
+      }
+      console.log(newHistory);
+      setHistory(() => [...history, newHistory])
+      }
+      createNewHistory();
+    }
+  }, [gameNumber]) //this needs to update after current winner is updated, but needs to change whether or not the winner changes
+  
+
+
 
 
   const resetGame = () => {
@@ -121,7 +173,15 @@ function App() {
         :
         <LogBody
           isGame={isGame}
-          setIsGame={setIsGame} />}
+          setIsGame={setIsGame}
+          currentBet={currentBet}
+          currentPlayer={currentPlayer}
+          currentGuess={currentGuess}
+          flipOutcome={flipOutcome}
+          flipWinner={flipWinner}
+          timeOfFlip={timeOfFlip}
+          history={history}
+          />}
       <Footer />
     </div>
   )

@@ -85,7 +85,7 @@ const CoinBody = ({
       </div>
       
       {/* To Log Page Button (absolute positioning right side) */}
-      <button type='button' className='coinbody__container-history' onClick={() => setIsGame(!isGame)}>
+      <button type='button' className='coinbody__container-history' onClick={() => setIsGame(false)}>
         <div className='coinbody__container-history_text'>History</div>
         <div>&#8594;</div>
       </button>
