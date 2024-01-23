@@ -22,7 +22,8 @@ const CoinBody = ({
   setCurrentGuess,
   P1Score,
   flipWinner,
-  resetGame }) => {
+  resetGame,
+  coinFace}) => {
   
   return (
     <>
@@ -30,41 +31,35 @@ const CoinBody = ({
       
       <div className='coinbody__container-current'>
         <div className='coinbody__container-current_item'>
-          <h3>Current Player</h3>
-          <h3>{currentPlayer}</h3>
+          <h3>Current Player: {currentPlayer}</h3>
         </div>
         <div className='coinbody__container-current_item'>
-          <h3>Current Bet</h3>
-          <h3>${currentBet}</h3>
+          <h3>Current Bet: ${currentBet}</h3>
         </div> 
+          
         <div className='coinbody__container-current_item'>
-          <h3>Current Winner</h3>
-          <h3>{currentWinner}</h3>
+          <h3>{currentPlayer} Current Guess: {currentGuess}</h3>
         </div>
-      </div>     
+      </div>   
       
-      <div className='coinbody__container-current_item-outcome'>
-        <h3>Flip Outcome: </h3>
-        <h3>&nbsp;{flipOutcome}</h3>
-      </div>
-        
-      <div className='coinbody__container-current_item-outcome'>
-        <h3>{currentPlayer} Current Guess: {currentGuess}</h3>
+      <div className='coinbody__container-current_winner'>
+          {/* conditional render this if no one is in the lead.  "No Current Winner" */}
+          {currentWinner && P1Score !== 0
+            ? <h3>{currentWinner} is owed ${Math.abs(P1Score)}0000000</h3>
+            : <h3>No Current Winner</h3>
+          }
       </div>
 
-      <div className='coinbody__container-current_item-outcome'>
-        <h3>P1 Total Score: {P1Score}</h3>
-        </div>
-        
-      <div className='coinbody__container-current_item-outcome'>
-        <h3>Flip (Round) Winner: {flipWinner}</h3>
-        </div>
 
       <div className='coinbody__container-body'>
         {/* coin image/flip button */}
         <div className='coinbody__container-body_coin'>
-          <button type='button' className='coinbody__container-body_coin-button' onClick={() => coinFlip()}>
-            <img src='../../../public/assets/coin_generic.png' alt='coin' />
+            <button type='button' className='coinbody__container-body_coin-button' onClick={() => coinFlip()}>
+              {coinFace === "Heads"
+                ? <img src='../../../public/assets/heads-pic.png' alt='coin' />
+                : <img src='../../../public/assets/tails-pic.png' alt='coin' />
+              }
+            
           </button>
           <div>Click to Flip!</div>
         </div>
@@ -78,10 +73,6 @@ const CoinBody = ({
           </button>
           </div>
           
-          <div>
-            <button onClick={() => resetGame()}>Reset</button>
-          </div>
-
       </div>
       
       {/* To Log Page Button (absolute positioning right side) */}

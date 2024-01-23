@@ -19,6 +19,7 @@ function App() {
   const [showOutcomeText, setShowOutcomeText] = useState(false);
   const [timeOfFlip, setTimeOfFlip] = useState("");
   const [gameNumber, setGameNumber] = useState(0);
+  const [coinFace, setCoinFace] = useState("Heads");
 
   //runs when Coin is Clicked
   const coinFlip = () => {
@@ -56,7 +57,7 @@ function App() {
       setFlipWinner("P1")
       setP1Score(() => score + bet)
     }
-
+    setCoinFace(() => flip)
   }
 
   useEffect(() => {
@@ -117,7 +118,8 @@ function App() {
           guess: `${currentGuess}`,
           outcome: `${flipOutcome}`,
           roundWinner: `${ flipWinner }`,
-          overallWinner: `${currentWinner}`
+          overallWinner: `${currentWinner}`,
+          score: `${P1Score}`
       }
       console.log(newHistory);
       setHistory(() => [...history, newHistory])
@@ -130,13 +132,13 @@ function App() {
 
 
 
-  const resetGame = () => {
-    // setCurrentBet(0);
-    // setCurrentGuess('');
-    // setFlipWinner('');
-    // setFlipOutcome('');
-    // setP1Score(0);
-  }
+  // const resetGame = () => {
+  //   setCurrentBet(0);
+  //   setCurrentGuess('');
+  //   setFlipWinner('');
+  //   setFlipOutcome('');
+  //   setP1Score(0);
+  // }
 
 
   return (
@@ -151,6 +153,7 @@ function App() {
       <Header isGame={isGame} />
       {isGame ?
         <CoinBody
+          coinFace={coinFace}
           calcFlip={calcFlip}
           isGame={isGame}
           setIsGame={setIsGame}
@@ -164,7 +167,7 @@ function App() {
           P1Score={P1Score}
           flipWinner={flipWinner}
           coinFlip={coinFlip}
-          resetGame={resetGame}
+          // resetGame={resetGame}
           changePlayer={changePlayer}
           showBetModal={showBetModal}
           setShowBetModal={setShowBetModal}

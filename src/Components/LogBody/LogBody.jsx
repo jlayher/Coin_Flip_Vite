@@ -16,6 +16,7 @@ const LogBody = ({isGame, setIsGame, currentBet, currentPlayer, currentGuess, fl
           <div>Flip Outcome: {game.outcome}</div>
           <div>Round Winner: {game.roundWinner}</div>
           <div>Currently in the Lead: {game.overallWinner}</div>
+          <div>Amount Owed to {game.overallWinner}: ${Math.abs(game.score)}</div>
         </div>
       ));
     }

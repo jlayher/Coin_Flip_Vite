@@ -5,6 +5,8 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    border: 1px solid black;
+    margin: 0 5vw;
 }
 
 .coinbody__container-history {
@@ -57,7 +59,9 @@
 
 .coinbody__container-current {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
     flex-wrap: wrap;
     margin-top: 20px;
 }
@@ -67,6 +71,21 @@
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.coinbody__container-current_winner {
+    display: flex;
+    justify-self: center;
+    align-self: flex-end;
+    background-color: gold;
+    border: 2px solid black;
+    min-width: 350px;
+}
+
+.coinbody__container-current_winner h3 {
+    /* display: flex;
+    justify-self: center; */
+    font-size: 1.5em;
 }
 
 .coinbody__container-current_item h3 {
@@ -110,8 +129,8 @@
 }
 
 .coinbody__container-body_coin-button img{
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     object-fit: contain;
 }
 
