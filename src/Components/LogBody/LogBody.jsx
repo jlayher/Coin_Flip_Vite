@@ -24,7 +24,7 @@ const LogBody = ({isGame, setIsGame, currentBet, currentPlayer, currentGuess, fl
   
   return (
     <div className='logbody__container'>
-      <div>
+      <div className='logbody_container-logs'>
         {logs()}
       </div>
 

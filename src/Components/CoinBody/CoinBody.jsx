@@ -29,50 +29,65 @@ const CoinBody = ({
     <>
     <div className='coinbody__container'>
       
-      <div className='coinbody__container-current'>
-        <div className='coinbody__container-current_item'>
-          <h3>Current Player: {currentPlayer}</h3>
-        </div>
-        <div className='coinbody__container-current_item'>
-          <h3>Current Bet: ${currentBet}</h3>
-        </div> 
-          
-        <div className='coinbody__container-current_item'>
-          <h3>{currentPlayer} Current Guess: {currentGuess}</h3>
-        </div>
-      </div>   
+        {/* Left Panel */}
+        <div className='coinbody__container-left'>
+          {/* Container Current Table */}
+          <div className='coinbody__container-left_current'>
+            <div className='coinbody__container-left_current-item'>
+              <h3>Current Player: {currentPlayer}</h3>
+            </div>
+            <div className='coinbody__container-left_current-item'>
+              <h3>Current Bet: ${currentBet}</h3>
+            </div> 
+            <div className='coinbody__container-left_current-item'>
+              <h3>{currentPlayer} Current Guess: {currentGuess}</h3>
+            </div>
+          </div>   
       
-      <div className='coinbody__container-current_winner'>
-          {/* conditional render this if no one is in the lead.  "No Current Winner" */}
-          {currentWinner && P1Score !== 0
-            ? <h3>{currentWinner} is owed ${Math.abs(P1Score)}0000000</h3>
-            : <h3>No Current Winner</h3>
-          }
-      </div>
-
-
-      <div className='coinbody__container-body'>
-        {/* coin image/flip button */}
-        <div className='coinbody__container-body_coin'>
-            <button type='button' className='coinbody__container-body_coin-button' onClick={() => coinFlip()}>
-              {coinFace === "Heads"
-                ? <img src='../../../public/assets/heads-pic.png' alt='coin' />
-                : <img src='../../../public/assets/tails-pic.png' alt='coin' />
-              }
-            
-          </button>
-          <div>Click to Flip!</div>
-        </div>
-
-        {/* Place Bet Banner Btn */}
-        <div className='coinbody__container-body_bet'>
-          <button type='button' className='coinbody__container-body_bet-btn' onClick={() => setShowBetModal(!showBetModal)}>
+          {/* Left Buttons */}
+          <div className='coinbody__container-left_btns'>
+            {/* Place Bet Banner Btn */}
+            <div className='coinbody__container-left_bet'>
+              <button type='button' className='coinbody__container-center_btn' onClick={() => setShowBetModal(!showBetModal)}>
               {currentBet === 0
                 ? <>Place a Bet?</>
                 : <>Bet Submitted!</>}
-          </button>
-          </div>
+              </button>
+            </div>
+            {/* Change Player Btn */}
+            <div className='coinbody__container-left_bet'>
+              <button type='button' className='coinbody__container-center_btn' onClick={() => changePlayer()}>
+                <div className='coinbody__container-history_text'>Change Player</div>
+              </button>
+            </div>
+        </div>  
+        
           
+      </div>
+      
+
+
+{/* Center Panel for Coin Image Flip Button */}
+      <div className='coinbody__container-center'>
+        {/* coin image/flip button */}
+        <div className='coinbody__container-center_coin'>
+          <button type='button' className='coinbody__container-center_coin-button' onClick={() => coinFlip()}>
+            {coinFace === "Heads"
+              ? <img src='../../../public/assets/heads-pic.png' alt='coin' />
+              : <img src='../../../public/assets/tails-pic.png' alt='coin' />
+            }
+          </button>
+        <div>Click to Flip!</div>
+        </div>
+      </div>
+        
+    {/*Right Panel for Currently Winning Box  */}
+      <div className='coinbody__container-right'>
+          {/* conditional render this if no one is in the lead.  "No Current Winner" */}
+          {currentWinner && P1Score !== 0
+            ? <h3>{currentWinner} is owed ${Math.abs(P1Score)}</h3>
+            : <h3>No Current Winner</h3>
+          }
       </div>
       
       {/* To Log Page Button (absolute positioning right side) */}
@@ -81,10 +96,7 @@ const CoinBody = ({
         <div>&#8594;</div>
       </button>
         
-      <button type='button' className='coinbody__container-reset' onClick={() => changePlayer()}>
-        <div className='coinbody__container-history_text'>Change Player</div>
-        {/* <div>&#8592;</div> */}
-      </button>
+
 
     </div>
     
@@ -106,7 +118,6 @@ const CoinBody = ({
           <div>
             {currentWinner} is in the Lead!
           </div>
-        
         </div>}
     </>
   )

@@ -5,7 +5,7 @@ const Header = ({isGame}) => {
   return (
     <div className='header__container'>
           <h1 className='header__container-title'>
-            {isGame ? "Flip" : "History"}
+            {isGame ? "Place Your Bets and Flip!" : "History"}
           </h1>
       </div>
   )

@@ -33,17 +33,20 @@ const BetModal = ({ currentPlayer, setCurrentBet, setCurrentGuess, setShowBetMod
 
         <div className='betmodal__container-icons'>
           {/* toggle selected class around Images */}
-
-          <label htmlFor="heads">Heads</label>
-            <input
-              type="radio"
-              id="heads"
-              name="flipvalue"
-              value="Heads"
-              onChange={(e) => {
-                setGuess(e.target.value);
-              }}></input>
-          <label htmlFor="tails">Tails</label>
+          <div>
+            <label htmlFor="heads">Heads</label>
+                <input
+                  type="radio"
+                  id="heads"
+                  name="flipvalue"
+                  value="Heads"
+                  onChange={(e) => {
+                    setGuess(e.target.value);
+                }}></input>   
+              </div>
+          
+          <div>
+            <label htmlFor="tails">Tails</label>
             <input
               type="radio"
               id="tails"
@@ -52,6 +55,8 @@ const BetModal = ({ currentPlayer, setCurrentBet, setCurrentGuess, setShowBetMod
               onChange={(e) => {
                 setGuess(e.target.value);
               }}></input>
+          </div>
+          
         </div>
 
         <button type='submit' className='betmodal__container-btn'>Place Bet</button>

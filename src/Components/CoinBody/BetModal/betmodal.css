@@ -1,6 +1,6 @@
 .betmodal__container{
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 38%;
     
     width: 25%;
@@ -10,11 +10,18 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
     font-size: 2rem;
 
-    border: 2px solid red;
-    background-color: burlywood;
+    background-color: rgb(251, 221, 184);
+    background-image: url('../../../public/assets/cardboard.png');
 
+    border: 2px solid black;
+    border-radius: 3px;
+    -webkit-box-shadow: -6px 2px 9px 1px rgba(0,0,0,0.8); 
+    box-shadow: -3px 2px 15px 1px rgba(0,0,0,0.8);
+
+    padding: 10px 0px 20px 0px;;
 }
 
 
@@ -27,14 +34,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .betmodal__container-bet {
     max-width: 25%;
+    font-size: .6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.betmodal__container-icons button{
+.betmodal__container-icons {
+    width: 100%;
     font-size: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0px 20px 0px;
+
+   
+}
+.betmodal__container-icons input{
+    padding: 10px 20px;
 }
 
 .betmodal__container-btn {

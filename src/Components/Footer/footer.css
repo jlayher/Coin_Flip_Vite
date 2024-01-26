@@ -5,14 +5,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 5vw;
-    margin-left: 5vw;
-    border: 1px solid black;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    border: 2px solid black;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+        background-color: rgb(229, 223, 223);
+            background-color: rgb(242, 231, 231);
+        background-image: url('../../../public/assets/cardboard.png');
 }
 
 .footer__container-copyright{
     font-size: 1.25em;
-    
+    text-shadow: 1px 1px 2px rgba(200, 200, 200, 0.794);
     margin-left: 20px;
 }
 

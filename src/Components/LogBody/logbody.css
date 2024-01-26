@@ -1,14 +1,28 @@
 .logbody__container {
+    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  
+
+    height: 80vh;
+    background-color: rgb(251, 221, 184);
+    
+    background-image: url('../../../public/assets/wood3dbrev.jpg');
+
+    border: 2px solid black;
+    border-radius: 25px;
+    margin: 10px 10vw 10px 10vw;
+
 }
 
 .logbody__container-history {
     position: absolute;
     left: 0;
-    top: 44%;
+    bottom: 5%;
 
     display: flex;
+    
     justify-content: center;
     align-items: center;
 
@@ -29,6 +43,32 @@
     padding-left: 12px;
 }
 
-.card {
-    margin: 20px;
+.logbody_container-logs{
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    /* flex-direction: row; */
 }
+
+.card {
+    display: inline-flex;
+    flex-direction: column;
+    /* flex: 1; */
+    margin: 10px;
+    padding: 10px;
+    /* flex: 1;; */
+
+    max-height: 200px;
+
+    background-color: rgb(251, 221, 184);
+    background-image: url('../../../public/assets/cardboard.png');
+
+    border: 1px solid black;
+    border-radius: 3px;
+    -webkit-box-shadow: -6px 2px 9px 1px rgba(0,0,0,0.8); 
+    box-shadow: -3px 2px 15px 1px rgba(0,0,0,0.8);
+
+}
+

@@ -3,10 +3,18 @@
     height: 80vh;
     flex: 1;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    border: 1px solid black;
-    margin: 0 5vw;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+
+    border: 2px solid black;
+    border-radius: 25px;
+    margin: 10px 10vw;
+
+
+    /* background-color: black; */
+    background-image: url('../../../public/assets/wood3dbrev.jpg');
+    background-size: cover;
+    /* opacity: .9; */
 }
 
 .coinbody__container-history {
@@ -29,98 +37,149 @@
     font-size: 1.5em;
 
     cursor: pointer;
-}
-
-.coinbody__container-reset {
-    position: absolute;
-    left: 0;
-    top: 44%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    background-color: black;
-    color: #fff;
-
-    padding: 12px;
-
-    font-size: 1.5em;
-
-    cursor: pointer;
+/* 
+    border: 1px solid white; */
 }
 
 .coinbody__container-history_text {
     padding-right: 12px;
 }
 
-.coinbody__container-current {
+
+/* Left Panel Styles (Current Table, Bet Submit, Change Player) */
+.coinbody__container-left {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    height: 100%;
+
+    /* border: 1px solid black; */
+}
+
+.coinbody__container-left_current {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
     align-items: flex-start;
     flex-wrap: wrap;
-    margin-top: 20px;
+
+    margin-top: 80px;
+    margin-bottom: 30px;
+    min-height: 100px;
+    height: 100px;
+    width: 350px;
+
+    background-color: rgb(251, 221, 184);
+    
+    background-image: url('../../../public/assets/cardboard.png');
+
+    border: 1px solid black;
+    border-radius: 3px;
+    -webkit-box-shadow: -6px 2px 9px 1px rgba(0,0,0,0.8); 
+box-shadow: -3px 2px 15px 1px rgba(0,0,0,0.8);
+
 }
 
-.coinbody__container-current_item {
+.coinbody__container-left_current-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.coinbody__container-current_winner {
-    display: flex;
-    justify-self: center;
-    align-self: flex-end;
-    background-color: gold;
-    border: 2px solid black;
-    min-width: 350px;
-}
-
-.coinbody__container-current_winner h3 {
-    /* display: flex;
-    justify-self: center; */
+.coinbody__container-left_current-item h3 {
     font-size: 1.5em;
+    text-shadow: 1px 1px 2px rgba(200, 200, 200, 0.794);
+    padding-left: 5px;
 }
 
-.coinbody__container-current_item h3 {
-    font-size: 1.5em;
-}
-
-.coinbody__container-current_item-outcome {
+.coinbody__container-left_btns{
     display: flex;
-    /* flex-direction: column; */
-    justify-content: flex-start;
+    flex-direction: column;
+    /* justify-content: flex-end; */
+}
+
+.coinbody__container-left_bet {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    
+}
+
+.coinbody__container-center_btn{
+    width: 190px;
+    height: 80px;
+    font-size: 1.5rem;
+
+    /* background-color: rgb(208, 36, 70); */
+
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 25px;
+    background-color: black;
+    color: #fff;
+}
+
+
+
+/* Right Panel Styles */
+.coinbody__container-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    
+    /* background-color: gold; */
+    /* border: 2px solid black; */
+    /* min-width: 350px;
+    max-height: 80px; */
+}
+
+.coinbody__container-right h3 {
+    display: flex;
+    justify-content: center;
     align-items: center;
-}
 
-.coinbody__container-current_item-outcome h3 {
+    margin-top: 80px;
+    padding: 0 10px 0 10px;
+
     font-size: 1.5em;
+    text-shadow: 1px 1px 2px rgba(200, 200, 200, 0.794);
+    background-color: rgb(251, 221, 184);
+    background-image: url('../../../public/assets/cardboard.png');
+
+    border: 1px solid black;
+    border-radius: 3px;
+
+    max-height: 50px;
+
+    -webkit-box-shadow: 2px 2px 9px 1px rgba(0,0,0,0.8); 
+box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.8);
+    
 }
 
-.coinbody__container-body{
-    position: relative;
+
+
+.coinbody__container-center{
+    /* position: relative; */
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* min-width: 50%; */
 }
 
-.coinbody__container-body_coin {
+.coinbody__container-center_coin {
     display: flex;
     flex-direction: column;
     flex: 1;
     align-items: center;
     justify-content: center;
+     color: #fff;
 }
 
-.coinbody__container-body_coin-button {
+.coinbody__container-center_coin-button {
     background: none;
     border-radius: 100%;
     border: none;
@@ -128,32 +187,17 @@
     cursor: pointer;
 }
 
-.coinbody__container-body_coin-button img{
-    width: 400px;
-    height: 400px;
+.coinbody__container-center_coin-button img{
+    width: 450px;
+    height: 450px;
     object-fit: contain;
 }
 
-.coinbody__container-body_coin div {
+.coinbody__container-center_coin div {
     font-size: 1.25em;
     margin-top: 10px;;
 }
 
-.coinbody__container-body_bet {
-    width: 100%;
-
-}
-
-.coinbody__container-body_bet-btn{
-    width: 100%;
-    height: 80px;
-
-    font-size: 1.5rem;
-
-    background-color: rgb(208, 36, 70);
-
-    cursor: pointer;
-}
 
 .coinbody__outcome {
     font-size: 2em;
@@ -171,5 +215,5 @@
     flex-direction: column;
     font-size: 2rem;
 
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }

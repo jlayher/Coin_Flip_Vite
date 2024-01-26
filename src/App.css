@@ -4,4 +4,7 @@
     min-height: 100vh;
     flex-direction: column;
     position: relative;
+    background-color: rgb(223, 221, 221);
+    background-image: url('../public/assets/cardboard.png');
+    background-color: #686363
 }
