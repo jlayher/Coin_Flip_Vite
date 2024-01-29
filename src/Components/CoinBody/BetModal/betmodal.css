@@ -41,6 +41,7 @@
     max-width: 25%;
     font-size: .6em;
     display: flex;
+    text-align: center;
     justify-content: center;
     align-items: center;
 }

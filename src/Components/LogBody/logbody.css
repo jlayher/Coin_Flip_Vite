@@ -1,7 +1,9 @@
 .logbody__container {
     position: relative;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
   
 
@@ -44,7 +46,7 @@
 }
 
 .logbody_container-logs{
-    display: inline-flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;

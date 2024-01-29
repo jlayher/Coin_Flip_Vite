@@ -121,7 +121,7 @@ function App() {
           overallWinner: `${currentWinner}`,
           score: `${P1Score}`
       }
-      console.log(newHistory);
+
       setHistory(() => [...history, newHistory])
       }
       createNewHistory();

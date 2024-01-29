@@ -2,27 +2,34 @@
     height: 7vh;
     /* width: 100vw; */
     margin-top: auto;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     margin-right: 10vw;
     margin-left: 10vw;
+
+
+
     border: 2px solid black;
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
-        background-color: rgb(229, 223, 223);
-            background-color: rgb(242, 231, 231);
-        background-image: url('../../../assets/cardboard.png');
+    background-color: rgb(229, 223, 223);
+    background-color: rgb(242, 231, 231);
+    background-image: url('../../../assets/cardboard.png');
 }
 
 .footer__container-copyright{
     font-size: 1.25em;
     text-shadow: 1px 1px 2px rgba(200, 200, 200, 0.794);
     margin-left: 20px;
+    padding-top: 2px;
 }
 
 .footer__container-social{
     display: flex;
+      padding-top: 2px;
 }
 
 .footer__container-social_icon {
@@ -34,8 +41,30 @@
     height: 36px;
     width: 36px;
     object-fit: contain;
+    text-decoration: none;
+    color: black;
 }
 
+.footer__container-social_icon-icon a:visited{
+    color: inherit;
+}
+
+
+
+
+/* Smaller laptop/large tablet */
+
+/* decrease the font size and possibly padding */
+@media screen and (max-width: 980px) {
+      .footer__container-copyright {
+        font-size: 1em;
+    }
+
+    .footer__container-social_icon-icon {
+        height: 28px;
+        width: 28px;
+    }
+}
 
 
 /* START: Small screen*/

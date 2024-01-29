@@ -1,0 +1,27 @@
+.pagination__container{
+    /* background-color: aliceblue; */
+}
+
+.pagination__container-button {
+  font-size: 18px;
+  width: 60px;
+  height: 40px;
+  margin: 0px 20px;
+
+  
+  /* position: sticky; */
+
+
+    background-color: rgb(251, 221, 184);
+    background-image: url('../../../../public/assets/cardboard.png');
+  border-radius: 12px;
+  border: 2px solid black; 
+margin-bottom: 10px;
+   /* gradient generated with cssmatic.com */
+  -webkit-box-shadow: 5px 6px 20px 9px rgba(18,18,18,0.57);
+  -moz-box-shadow: 5px 6px 20px 9px rgba(18,18,18,0.57);
+  box-shadow: 5px 6px 20px 9px rgba(18,18,18,0.57);
+
+  cursor: pointer;
+  
+}
