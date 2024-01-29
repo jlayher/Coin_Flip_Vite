@@ -14,7 +14,7 @@
     font-size: 2rem;
 
     background-color: rgb(251, 221, 184);
-    background-image: url('../../../public/assets/cardboard.png');
+    background-image: url('../../../assets/cardboard.png');
 
     border: 2px solid black;
     border-radius: 3px;

@@ -12,7 +12,7 @@
     border-top-left-radius: 25px;
         background-color: rgb(229, 223, 223);
             background-color: rgb(242, 231, 231);
-        background-image: url('../../../public/assets/cardboard.png');
+        background-image: url('../../../assets/cardboard.png');
 }
 
 .footer__container-copyright{

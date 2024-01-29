@@ -10,7 +10,7 @@
     background-color: rgb(242, 231, 231);
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
-    background-image: url('../../../public/assets/cardboard.png');
+    background-image: url('../../../assets/cardboard.png');
 }
 
 .header__container-title {

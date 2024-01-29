@@ -48,7 +48,7 @@ const CoinBody = ({
           <div className='coinbody__container-left_btns'>
             {/* Place Bet Banner Btn */}
             <div className='coinbody__container-left_bet'>
-              <button type='button' className='coinbody__container-center_btn' onClick={() => setShowBetModal(!showBetModal)}>
+              <button type='button' className='coinbody__container-left_btn' onClick={() => setShowBetModal(!showBetModal)}>
               {currentBet === 0
                 ? <>Place a Bet?</>
                 : <>Bet Submitted!</>}
@@ -56,7 +56,7 @@ const CoinBody = ({
             </div>
             {/* Change Player Btn */}
             <div className='coinbody__container-left_bet'>
-              <button type='button' className='coinbody__container-center_btn' onClick={() => changePlayer()}>
+              <button type='button' className='coinbody__container-left_btn' onClick={() => changePlayer()}>
                 <div className='coinbody__container-history_text'>Change Player</div>
               </button>
             </div>
@@ -73,11 +73,11 @@ const CoinBody = ({
         <div className='coinbody__container-center_coin'>
           <button type='button' className='coinbody__container-center_coin-button' onClick={() => coinFlip()}>
             {coinFace === "Heads"
-              ? <img src='../../../public/assets/heads-pic.png' alt='coin' />
-              : <img src='../../../public/assets/tails-pic.png' alt='coin' />
+              ? <img src='../../../assets/heads-pic.png' alt='coin' />
+              : <img src='../../../assets/tails-pic.png' alt='coin' />
             }
           </button>
-        <div>Click to Flip!</div>
+        <div className='coinbody__container-center_text'>Click the Coin to Flip!</div>
         </div>
       </div>
         

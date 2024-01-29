@@ -8,7 +8,7 @@
     height: 80vh;
     background-color: rgb(251, 221, 184);
     
-    background-image: url('../../../public/assets/wood3dbrev.jpg');
+    background-image: url('../../../assets/wood3dbrev.jpg');
 
     border: 2px solid black;
     border-radius: 25px;
@@ -63,7 +63,7 @@
     max-height: 200px;
 
     background-color: rgb(251, 221, 184);
-    background-image: url('../../../public/assets/cardboard.png');
+    background-image: url('../../../assets/cardboard.png');
 
     border: 1px solid black;
     border-radius: 3px;
