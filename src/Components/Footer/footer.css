@@ -51,6 +51,19 @@
 
 
 
+/* Medium Size laptops  */
+@media screen and (max-width: 1200px) {
+    
+    .footer__container-copyright {
+        font-size: 1.1em;
+    }
+
+    .footer__container-social_icon-icon {
+        height: 32px;
+        width: 32px;
+    }
+}
+
 
 /* Smaller laptop/large tablet */
 

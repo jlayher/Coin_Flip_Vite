@@ -57,7 +57,7 @@ const CoinBody = ({
             {/* Change Player Btn */}
             <div className='coinbody__container-left_bet'>
               <button type='button' className='coinbody__container-left_btn' onClick={() => changePlayer()}>
-                <div className='coinbody__container-history_text'>Change Player</div>
+                <div>Change Player</div>
               </button>
             </div>
         </div>  

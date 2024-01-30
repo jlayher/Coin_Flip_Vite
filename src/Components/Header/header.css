@@ -21,6 +21,17 @@
 
 
 
+/* Medium Size laptops  */
+@media screen and (max-width: 1200px) {
+    .header__container-title {
+        margin: 5px 0px;
+        font-size: 36px;
+    }
+}
+
+
+
+
 /* Smaller laptop/large tablet */
 
 /* decrease the font size and possibly padding */

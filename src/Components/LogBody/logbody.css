@@ -74,3 +74,11 @@
 
 }
 
+
+/* smaller laptops and tablets */
+@media screen and (max-width: 980px) {
+    
+    .logbody__container-history {
+        font-size: 1em;
+    }
+}
