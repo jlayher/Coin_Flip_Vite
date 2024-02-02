@@ -82,3 +82,27 @@
         font-size: 1em;
     }
 }
+
+@media screen and (max-width: 768px) {
+
+    .logbody_container-logs {
+
+    }
+
+    .card {
+        font-size: .8em;
+        margin: 0px 10px;
+    }
+
+    .logbody__container-history {
+
+            left: 0;
+            bottom: 1.5%;
+            border-radius: 25px;
+    }
+    
+    .logbody__container-history_text {
+        font-size: .8em;
+        padding: 0px 0px 0px 4px;
+    }
+}

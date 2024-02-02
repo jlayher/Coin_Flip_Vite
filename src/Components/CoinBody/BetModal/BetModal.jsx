@@ -28,7 +28,7 @@ const BetModal = ({ currentPlayer, setCurrentBet, setCurrentGuess, setShowBetMod
 
       <form className='betmodal__form' onSubmit={handleSubmit}>
         
-        <label htmlFor='bet' >Bet</label>
+        <label htmlFor='bet' ></label>
         <input type='number' name='bet' className='betmodal__container-bet' ref={betRef}></input>
 
         <div className='betmodal__container-icons'>

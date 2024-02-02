@@ -367,37 +367,187 @@ decrease font size and properly center outcome and bet modals */
 /* tablets */
 
 @media screen and (max-width: 768px) {
+
+    .coinbody__container{
+        flex-direction: column-reverse;
+        justify-content: center;
+
+    }
+
+
 /* left */
     .coinbody__container-left_current {
-        margin-left: 25px;
+      margin: 0px;
+      margin-bottom: 30px;
+      width: 50%;
+      justify-content: center;
+      align-items: center;
     }
 
     .coinbody__container-left_current h3 {
-        font-size: .7em;
+        /* font-size: .7em; */
+    }
+
+    .coinbody__container-left_btns{
+        flex-direction: row;
     }
 
     .coinbody__container-left_btn{
         height: 60px;
-        font-size: .8em;
+        font-size: 1em;
     }
+
+    
+.coinbody__container-history {
+    right: 0;
+    top: 44%;
+
+    padding: 12px;
+
+    font-size: 1em;
+}
+
+.coinbody__container-history_text {
+    padding-right: 4px;
+}
 
     /* center */
 
     .coinbody__container-center_coin-button img{
-        width: 250px;
-        height: 250px;
+        width: 325px;
+        height: 325px;
+    }
+
+    .coinbody__container-center_coin div {
+        font-size: .8em;
     }
 
     /* right */
     .coinbody__container-right h3 {
-        margin-right: 8px;
-        font-size: .7em;
+
+        margin: 0;
+        margin-top: 30px;
+        font-size: 1.2em;
+        width: 50%;
     }
 
     .coinbody__container-history {
-        font-size: .9em;
+        font-size: 1em;
         right: 0;
-        top: 84%;
+        top: 15%;
+    }
+
+}
+
+/* Small Screens/Mobile */
+@media screen and (max-width: 550px) {
+
+        /* left */
+.coinbody__container-left_current {
+
+}
+
+.coinbody__container-left_current h3 {
+
+}
+
+.coinbody__container-left_btn{
+
+}
+
+/* center */
+
+.coinbody__container-center_coin-button img{
+    width: 250px;
+    height: 250px;
+    
+}
+
+.coinbody__container-center_coin div {
+    font-size: .9em;
+}
+
+.coinbody__container-center_text {
+    font-size: .9em;
+}
+
+
+/* right */
+.coinbody__container-right h3 {
+    font-size: 1.1em;
+    
+}
+
+.coinbody__container-history {
+    font-size: 1em;
+}
+
+.coinbody__outcome  {
+    font-size: 1.2em;
+}
+
+}
+
+/* phones */
+@media screen and (max-width: 450px) {
+
+    .coinbody__container {
+        margin: 10px;
+    }
+
+
+
+    /* left */
+    .coinbody__container-left_current {
+        width: 65%;
+        font-size: .8em;
+        margin-bottom: 18px;
+        min-height: 50px;
+        padding: 4px 0px;
+    }
+
+    .coinbody__container-left_current-item {
+        padding: 0px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+    .coinbody__container-left_current-item h3 {
+        padding-left: 0px;
+    }
+
+    .coinbody__container-left_btn{
+        font-size: .8em;
+        height: 48px;
+    }
+
+
+    .coinbody__container-history {
+
+
+    padding: 12px;
+
+    font-size: .8em;
+}
+
+.coinbody__container-history_text {
+    padding-right: 4px;
+}
+
+
+/* center */
+
+    .coinbody__container-center_coin div{
+        font-size: .6em;
+        margin: 0px;
+        margin-bottom: 8px;
+    }
+
+    /* right */
+    .coinbody__container-right h3 {
+        font-size: .8em;
+        width: 55%;
+        padding: 10px;
     }
 
 }

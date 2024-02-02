@@ -26,7 +26,7 @@
 
 
 .betmodal__container-title {
-
+    padding-bottom: 20px;
 }
 
 .betmodal__form {
@@ -39,7 +39,10 @@
 
 .betmodal__container-bet {
     max-width: 25%;
+    height: 36px;
     font-size: .6em;
+
+
     display: flex;
     text-align: center;
     justify-content: center;
@@ -48,26 +51,72 @@
 
 .betmodal__container-icons {
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     display: flex;
     justify-content: space-around;
     padding: 10px 0px 20px 0px;
 
    
 }
+
+.betmodal__container-icons div {
+    display: flex;
+        flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .betmodal__container-icons input{
     padding: 10px 20px;
+    display: flex;
+
 }
 
 .betmodal__container-btn {
     font-size: 1.5rem;
+    padding: 8px;
 }
 
 
+/* tablets */
 @media screen and (max-width: 768px) {
+
+    .betmodal__container-title {
+        padding-bottom: 8px;
+    }
     
     .betmodal__container{
         width: 50%;
         transform: translateX(-25%);
+        font-size: 1.5em;
     }
+
+    .betmodal__container-bet {
+    max-width: 25%;
+    height: 28px;
+    font-size: .6em;
+    }
+
+    .betmodal__container-icons {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 10px 0px 10px 0px;
+    }
+
+    .betmodal__container-btn {
+        font-size: 1rem;
+        padding: 6px;
+    }
+
+}
+
+
+
+/* phones */
+@media screen and (max-width: 450px) {
+
+    .betmodal__container-title {
+       font-size: .8em;
+    }
+
 }
