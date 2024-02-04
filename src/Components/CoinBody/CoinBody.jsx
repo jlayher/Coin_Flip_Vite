@@ -83,7 +83,6 @@ const CoinBody = ({
         
     {/*Right Panel for Currently Winning Box  */}
       <div className='coinbody__container-right'>
-          {/* conditional render this if no one is in the lead.  "No Current Winner" */}
           {currentWinner && P1Score !== 0
             ? <h3>{currentWinner} is owed ${Math.abs(P1Score)}</h3>
             : <h3>No Current Winner</h3>
