@@ -44,6 +44,9 @@ const LogBody = ({isGame, setIsGame, currentBet, currentPlayer, currentGuess, fl
       
       </div>
 
+      {/* <div className='logbody_container-logs_gap'>
+
+      </div> */}
       <Pagination paginate={paginate} logsPerPage={logsPerPage} totalLogsNum={totalLogs.length} currentPage={currentPage} />
 
 

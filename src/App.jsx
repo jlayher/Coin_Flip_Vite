@@ -96,11 +96,21 @@ function App() {
     const month = today.getMonth() + 1;
     const day = today.getDate();
     const year = today.getFullYear();
-    const hour = today.getHours();
-    const mins = today.getMinutes();
-    const secs = today.getSeconds();
+    let hour = today.getHours();
     const amPm = (hour <= 12) ? "AM" : "PM"
-    const time = `${hour}:${mins}:${secs} ${amPm} ${month}-${day}-${year}`
+    if (hour > 12) {
+      hour = hour - 12;
+    }
+    let mins = today.getMinutes();
+    if (mins < 10) {
+      mins = `0${secs}`
+    }
+    let secs = today.getSeconds();
+    if (secs < 10) {
+      secs = `0${secs}`
+    }
+
+    const time = `${hour}:${mins}:${secs} ${amPm}, ${month}-${day}-${year}`
 
     setTimeOfFlip(time)
   }

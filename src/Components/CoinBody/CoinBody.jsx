@@ -51,7 +51,7 @@ const CoinBody = ({
               <button type='button' className='coinbody__container-left_btn' onClick={() => setShowBetModal(!showBetModal)}>
               {currentBet === 0
                 ? <>Place a Bet?</>
-                : <>Bet Submitted!</>}
+                : <>Change Bet?</>}
               </button>
             </div>
             {/* Change Player Btn */}
@@ -71,7 +71,7 @@ const CoinBody = ({
       <div className='coinbody__container-center'>
         {/* coin image/flip button */}
         <div className='coinbody__container-center_coin'>
-          <button type='button' className='coinbody__container-center_coin-button' onClick={() => coinFlip()}>
+            <button type='button'  className='coinbody__container-center_coin-button' disabled={showOutcomeText || showBetModal } onClick={() => coinFlip()}>
             {coinFace === "Heads"
               ? <img src='../../../assets/heads-pic.png' alt='coin' />
               : <img src='../../../assets/tails-pic.png' alt='coin' />
@@ -112,12 +112,17 @@ const CoinBody = ({
           <div>
             Flip Outcome: {flipOutcome}
           </div>
-          <div>
-            {flipWinner} Won the Round!
-          </div>
-          <div>
-            {currentWinner} is in the Lead!
-          </div>
+          {flipWinner
+            ? <div>{flipWinner} Won the Round!</div>
+            : <></>
+          }
+          {currentWinner && P1Score !== 0
+            ? <div>{currentWinner} is in the Lead!</div>
+            : <></>
+          }
+          <button type='button' className='coinbody__outcome-button' onClick={() => !showOutcomeText}>
+            Close
+          </button>
         </div>}
     </>
   )

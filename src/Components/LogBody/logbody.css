@@ -4,17 +4,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-  
+    /* flex-wrap: wrap; */
+    flex: 1;
 
     height: 80vh;
+    margin: 10px 10vw 10px 10vw;
+
+
     background-color: rgb(251, 221, 184);
     
     background-image: url('../../../assets/wood3dbrev.jpg');
 
     border: 2px solid black;
     border-radius: 25px;
-    margin: 10px 10vw 10px 10vw;
+    overflow-y: auto;
 
 }
 
@@ -62,12 +65,14 @@
     padding: 10px;
     /* flex: 1;; */
 
+    font-weight: 800;
+
     max-height: 200px;
 
     background-color: rgb(251, 221, 184);
     background-image: url('../../../assets/cardboard.png');
 
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 3px;
     -webkit-box-shadow: -6px 2px 9px 1px rgba(0,0,0,0.8); 
     box-shadow: -3px 2px 15px 1px rgba(0,0,0,0.8);
@@ -75,12 +80,41 @@
 }
 
 
-/* smaller laptops and tablets */
-@media screen and (max-width: 980px) {
+
+/* larger screens */
+@media screen and (max-width: 1500px) {
     
     .logbody__container-history {
-        font-size: 1em;
+        font-size: 1.2em;
+        bottom: 2%;
     }
+
+        .logbody__container-history_text {
+        font-size: .8em;
+        padding: 0px 0px 0px 4px;
+    }
+}
+
+/* smaller laptops and tablets */
+@media screen and (max-width: 1090px) {
+    
+    .logbody__container-history {
+
+            left: 0;
+            bottom: 1%;
+            border-radius: 25px;
+    }
+    
+    .logbody__container-history_text {
+        font-size: .8em;
+        padding: 0px 0px 0px 4px;
+    }
+
+        .card {
+        font-size: .9em;
+        margin: 0px 10px 10px 10px;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -97,12 +131,75 @@
     .logbody__container-history {
 
             left: 0;
-            bottom: 1.5%;
+            bottom: .9%;
             border-radius: 25px;
+            padding: 4px;
     }
     
     .logbody__container-history_text {
-        font-size: .8em;
+        font-size: .65em;
+        padding: 0px 0px 0px 4px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+
+    .logbody_container-logs {
+        margin-top: 40px;
+        /* border-top: 2px solid black; */
+    }
+    
+    .card {
+        font-size: .7em;
+        margin: 0px 10px;
+    }
+
+    .logbody__container-history {
+        left: 0;
+        bottom: 94%;
+        border-radius: 25px;
+        
+        padding: 4px;
+    }
+    
+    .logbody__container-history_text {
+        font-size: .5em;
+        padding: 0px 0px 0px 4px;
+    }
+
+}
+
+@media screen and (max-width: 550px) {
+
+    /* .logbody_container-logs:last-child {
+        padding-bottom: 20px;
+        margin-bottom: 60px;
+    } */
+
+    /* .logbody_container-logs_gap{
+        margin: 20px 0px;
+    } */
+
+    .logbody_container-logs {
+        margin-top: 60px;
+        /* border-top: 2px solid black; */
+    }
+
+    .card {
+        font-size: .7em;
+        margin: 10px;
+    }
+
+    .logbody__container-history {
+        left: 0;
+        bottom: 96%;
+        border-radius: 25px;
+        
+        padding: 4px;
+    }
+    
+    .logbody__container-history_text {
+        font-size: .5em;
         padding: 0px 0px 0px 4px;
     }
 }
